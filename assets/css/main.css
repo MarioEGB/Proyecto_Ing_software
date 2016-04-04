@@ -1,0 +1,47 @@
+.quitar-float{
+	float: none;
+}
+
+.color-p{
+	background-color: #049DBF;
+}
+
+body#p{
+	background-color: #03658C;
+}
+
+div#b_lateral{
+	position: absolute;
+	width: 270px;
+	height: 100%;
+	margin left: 20px;
+	background-color: #011826;
+}
+
+.img-menu{
+	width: 40px;
+	height: 40px;
+	float: left;
+	background-image:url(/CompuMax/assets/imagenes/menu.png);
+
+	
+}
+
+.text-menu{
+	width: 12em;
+	text-align: center;
+	display: list-item;
+	color: white;
+	line-height: 40px;
+	font-size: 18px;
+}
+
+.cont-barra{
+	width: 150px;
+	height: 40px;
+	margin-top: 240px;
+
+}
+
+
+
