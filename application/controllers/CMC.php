@@ -23,11 +23,17 @@ function Carrito(){
 }
 
 function Login(){
-	$dato['titulo']= 'Lon-in';
+	$dato['titulo']= 'Log-in';
 	$this->load->helper('form');
 	$this->load->model('CompuMaxDBM');
 	$this->load->view('headers',$dato);
 	$this->load->view('Login');
+}
+
+function adminPrincipal(){
+	$dato['titulo']= 'Home-Admin';
+	$this->load->view('headers',$dato);
+	$this->load->view('adminPrincipal');
 }
 
 function TerminarCompra(){
