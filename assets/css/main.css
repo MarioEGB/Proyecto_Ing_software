@@ -2,6 +2,30 @@
 	float: none;
 }
 
+.espacio-arriba{
+	margin-top: 15em;
+}
+
+.login{
+	font-size: 18px;
+	text-align: center;
+	margin-top: 15em;
+}
+
+.imagen-Carrito{
+	margin-top: 10px;
+	margin-left: 100px;
+	width: 40px;
+	height: 40px;
+	background-image:url(/CompuMax/assets/imagenes/Carrito.png);
+}
+
+.texto-carrito{
+	color: white;
+	line-height: 110px;
+	font-size: 18px;
+}
+
 .color-p{
 	background-color: #049DBF;
 }
@@ -29,7 +53,6 @@ div#b_lateral{
 
 .text-menu{
 	width: 12em;
-	text-align: center;
 	display: list-item;
 	color: white;
 	line-height: 40px;

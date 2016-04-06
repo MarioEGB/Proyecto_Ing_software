@@ -8,17 +8,15 @@ class CompuMaxDBM extends CI_Model{
 	}
 
 function validarDatos($data){
-		$query = $this->db->get('lista_alumno');
+		$query = $this->db->get('administrador');
 		if($query->num_rows()>0){
 		 foreach ($query->result() as $row){
-		 	if(($row->Matricula == $data['nombre']) && ($row->Password == $data['password'])){
-		 		redirect(base_url()."Datos");
+		 	if(($row->usuario == $data['nombre']) && ($row->contraseña == $data['password'])){
+		 		redirect(base_url()."CMC/adminPrincipal");
 		 	}
 		 }
-  	
-		redirect(base_url()."Ctsp");
 		}
-
+		redirect(base_url()."CMC/Login");
 	}
 
 function datosMenu(){

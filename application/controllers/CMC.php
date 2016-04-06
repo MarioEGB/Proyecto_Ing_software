@@ -19,9 +19,15 @@ function index(){
 }
 
 function Carrito(){
-	$dato['titulo']= 'Carrito';
-	$this->load->view('Proyecto/headers',$dato);
-	$this->load->view('Proyecto/Principal');
+	
+}
+
+function Login(){
+	$dato['titulo']= 'Lon-in';
+	$this->load->helper('form');
+	$this->load->model('CompuMaxDBM');
+	$this->load->view('headers',$dato);
+	$this->load->view('Login');
 }
 
 function TerminarCompra(){
@@ -34,6 +40,12 @@ function Cobro(){
 
 function verProducto(){
 
+}
+
+function comprobarDatos(){
+	$this->load->model('CompuMaxDBM');
+		$data = array('nombre' => $this->input->post('nombre'),'password' => $this->input->post('password'));
+		$this->CompuMaxDBM->validarDatos($data);
 }	
 
 }

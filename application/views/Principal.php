@@ -6,8 +6,14 @@
 	</div>
 
 	<div class="center-block text-center " id="b_lateral">
+	<div class="imagen-Carrito ">
+			<a href="CMC/Carrito" class="texto-carrito">
+			Carrito
+		</div>
+	
 
 		<div class="cont-barra quitar-float">
+
 	<?php foreach ($datos->result() as $opc) {?>
 		<ul>
 			<div class="img-menu ">
