@@ -1,12 +1,6 @@
-<html>
+ 
 
-<head>
-
-<title>TIENDA EN LINEA</title>
-
-</head>   
-
-<body>
+<body id="p">
 	
 
 <fieldset>

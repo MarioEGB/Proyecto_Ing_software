@@ -19,16 +19,14 @@
 			<div class="img-menu ">
 			</div>
 				<div>
-					<a href=<?= $opc->nombreCategoria ?> class="text-menu">
+					<a href=<?= "CMC/".$opc->nombreCategoria ?> class="text-menu">
 					<?=$opc->nombreCategoria;?>
 					</a>
 				</div>
 		</ul>
 	<?php } ?>
 
-		</div>
-			
-	</div>
+
 
 
 </body>

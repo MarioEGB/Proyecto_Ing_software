@@ -2,6 +2,20 @@
 	float: none;
 }
 
+.productos{
+	margin-left: 280px;
+}
+.imagenes-prod{
+	width: 100px;
+	height: 100px;
+}
+
+.h3{
+	font-size: 25px;
+	color:	black;
+	margin-left: 40em;
+}
+
 .espacio-arriba{
 	margin-top: 15em;
 }
@@ -51,6 +65,11 @@ div#b_lateral{
 	
 }
 
+.paginacion{
+	margin-left: 300px;
+	color:white;
+}
+
 .text-menu{
 	width: 12em;
 	display: list-item;
@@ -71,3 +90,6 @@ div#b_lateral{
 	color: white;
 }
 
+.color-blanco{
+	color:white;
+}

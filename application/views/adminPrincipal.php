@@ -1,5 +1,5 @@
 
-<body id="p" class="">
+<body id="p">
 	<div align = "center">
 <h1>PAGINA DE ADMINISTRADOR </h1>
 <br><br><br><br><br>
