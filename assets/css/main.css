@@ -2,6 +2,10 @@
 	float: none;
 }
 
+.centrar{
+	text-align: center;
+}
+
 .productos{
 	margin-left: 280px;
 }
@@ -20,6 +24,11 @@
 	margin-top: 15em;
 }
 
+.ad_categ{
+	font-size: 18px;
+	text-align: center;
+	margin-top: 5em;
+}
 .login{
 	font-size: 18px;
 	text-align: center;

@@ -7,6 +7,12 @@ class CompuMaxDBM extends CI_Model{
 		$this->load->database();
 	}
 
+
+function addCategoria($data){
+	 $this->db->insert('categoria',$data);
+	 redirect(base_url()."CMC/adminCategorias");
+}	
+
 function validarDatos($data){
 		$query = $this->db->get('administrador');
 		if($query->num_rows()>0){
@@ -27,6 +33,33 @@ function datosMenu(){
 		return false;
 	}
 	}
+
+function getCategorias(){
+	$query = $this->db->get('categoria');
+	return $query;
+}
+
+function updateCategoria($data,$id){
+	 $query= $this->db->get('categoria');
+	 $this->db->where('idCategoria', $id);
+	 	if($row->nombreCategoria!=$data){
+	 		$datos=array('nombreCategoria'=> $data);
+	 		$this->db->update('categoria', $datos);
+	 }
+	 redirect(base_url()."CMC/adminCategorias");
+}	
+
+function deleteCategoria($data){
+	$query= $this->db->get('categoria');
+	foreach ($query->result() as $row ) {
+		if($row->nombreCategoria==$data){
+			$id=$row->idCategoria;
+		}
+	}
+
+	$this->db->delete('categoria', array('idCategoria' => $id));
+	redirect(base_url()."CMC/adminCategorias"); 
+}
 
 function productos($dep){
 if($dep['dep']=="Computadoras"){
@@ -67,6 +100,11 @@ function num_filas($dep){
 }	
 }
 
+
+function num_filas_cat(){
+	$query = $this->db->get('categoria');
+	return$query->num_rows();
+}
 	
 }
 
