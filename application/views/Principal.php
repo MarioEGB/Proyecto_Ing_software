@@ -26,7 +26,7 @@
 		</ul>
 	<?php } ?>
 
-
+	<div><img src="/CompuMax/assets/imagenes/logo.png" class="logo"></div>
 
 
 </body>

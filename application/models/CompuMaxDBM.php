@@ -61,6 +61,11 @@ function deleteCategoria($data){
 	redirect(base_url()."CMC/adminCategorias"); 
 }
 
+function datosProd($id){
+	$query= $this->db->get_where('producto', array('idProducto' => $id));
+	return $query;
+}
+
 function productos($dep){
 if($dep['dep']=="Computadoras"){
 	$query = $this->db->get_where('producto','Categoria_idCategoria=1',$dep['per_page'],$this->uri->segment(3));

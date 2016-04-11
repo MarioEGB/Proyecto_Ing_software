@@ -2,8 +2,16 @@
 	float: none;
 }
 
+
 .centrar{
 	text-align: center;
+}
+.espacio-izq{
+	margin-left: 880px;
+}
+
+.letra-grande{
+	font-size: 18px;
 }
 
 .productos{
@@ -20,10 +28,16 @@
 	margin-left: 40em;
 }
 
+.imagen{
+	width: 200px;
+	height:200px;
+}
 .espacio-arriba{
 	margin-top: 15em;
 }
-
+.espacio-arriba2{
+	margin-top: 5em;
+}
 .ad_categ{
 	font-size: 18px;
 	text-align: center;
@@ -41,6 +55,11 @@
 	width: 40px;
 	height: 40px;
 	background-image:url(/CompuMax/assets/imagenes/Carrito.png);
+}
+.logo{	
+	width: 200;
+	height: 200px;
+	margin-left: 600px;
 }
 
 .texto-carrito{
@@ -90,7 +109,7 @@ div#b_lateral{
 .cont-barra{
 	width: 150px;
 	height: 40px;
-	margin-top: 240px;
+	margin-top: 100px;
 
 }
 

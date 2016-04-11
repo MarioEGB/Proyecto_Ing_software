@@ -1,5 +1,6 @@
 <body id="p" class="ad_categ">
 <h1 class="centrar color-blanco" >Administracion de Categorias</h1>
+<hr>
 <?= form_open("/CMC/addCategoria") ?>
 <?PHP
 $nombre = array('name' => 'nombre' ,'placeholder' => 'Escribe categoria nueva');

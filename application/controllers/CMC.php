@@ -108,9 +108,13 @@ function Cobro(){
 }
 
 function verProducto(){
+	$prod=$this->uri->segment(2);
+	$this->load->helper('form');
+	$this->load->model('CompuMaxDBM');
+	$datos_prod['datos']=$this->CompuMaxDBM->datosProd($prod);
 	$dato['titulo']= 'Producto';
 	$this->load->view('headers',$dato);
-	$this->load->view('verProducto');
+	$this->load->view('verProducto',$datos_prod);
 }
 
 function comprobarDatos(){
