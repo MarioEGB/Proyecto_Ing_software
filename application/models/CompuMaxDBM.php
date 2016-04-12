@@ -50,8 +50,7 @@ function updateCategoria($data,$id){
 }	
 
 function deleteCategoria($id){
-	$this->db->where('idCategoria', $id);
-	$this->db->delete('categoria'); 
+	$this->db->delete('categoria',array('idCategoria'=>$id));
 	redirect(base_url()."CMC/adminCategorias"); 
 }
 

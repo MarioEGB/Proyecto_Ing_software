@@ -19,7 +19,7 @@
 			<div class="img-menu ">
 			</div>
 				<div>
-					<a href=<?= $opc->nombreCategoria ?> class="text-menu">
+					<a href=<?= base_url()."CMC/".$opc->nombreCategoria ?> class="text-menu">
 					<?=$opc->nombreCategoria;?>
 					</a>
 				</div>
@@ -37,7 +37,7 @@
 			<div>
 			</div>
 				<div >
-					<a href=<?= $opc->idProducto ?> class="color-blanco">
+					<a href=<?= base_url()."CMC/".$opc->idProducto ?> class="color-blanco">
 					<img class="imagenes-prod "src=<?= $opc->imagen?>>
 					<?=$opc->nombreProducto;?>
 					$<?=$opc->precio;?>
@@ -48,7 +48,8 @@
 	<?php } ?>
 
 	</div>
-	<?php echo $this->pagination->create_links();?>
-
+	<div class="color-blanco">
+	<?php echo $tablas["paginacion"];?>
+	</div>
 </body>
 </html>
