@@ -49,15 +49,9 @@ function updateCategoria($data,$id){
 	 redirect(base_url()."CMC/adminCategorias");
 }	
 
-function deleteCategoria($data){
-	$query= $this->db->get('categoria');
-	foreach ($query->result() as $row ) {
-		if($row->nombreCategoria==$data){
-			$id=$row->idCategoria;
-		}
-	}
-
-	$this->db->delete('categoria', array('idCategoria' => $id));
+function deleteCategoria($id){
+	$this->db->where('idCategoria', $id);
+	$this->db->delete('categoria'); 
 	redirect(base_url()."CMC/adminCategorias"); 
 }
 

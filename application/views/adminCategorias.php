@@ -10,35 +10,32 @@ $nombre = array('name' => 'nombre' ,'placeholder' => 'Escribe categoria nueva');
 <br><br>
 <?= form_close() ?>
 
-
-<?php foreach ($cat->result() as $opc) {?>
 <?php $i=1;?>
-<?php
-$cookie = array(
-    'name'   => $i,
-    'value'  => $i,
-    'expire' => '86500'
-);
-$this->input->set_cookie($cookie);
+<?php foreach ($cat->result() as $opc) {?>
+
+<?= form_open("/CMC/updateCategoria") ?>
+<?PHP $nombre2 = array('name' => 'nombre' ,'placeholder' => 'Escribe categoria a modificar','value'=> $opc->nombreCategoria);
+$datos=array('name'=> $i,'value'=> 'Modificar')
 ?>
-<?= form_open("/CMC/updateCategoria",$i) ?>
-<?PHP	$nombre2 = array('name' => 'nombre' ,'placeholder' => 'Escribe categoria a modificar','value'=> $opc->nombreCategoria);?>
+<?php $i=$i+1;?>
  <?= form_input($nombre2);?>	
- <?= form_submit($i,'Modificar') ?>
- <?php $i=$i+1;?>
+ <?= form_submit($datos) ?>
+ 
  <br><br>
  <?= form_close() ?>
 <?php } ?>
 
-<?= form_open("/CMC/deleteCategoria",$i) ?>
-<?php
-$i=1;
-foreach ($cat->result() as $opc) {
-$options[$i] = array('categoria'=> $opc->nombreCategoria);
-$i=$i+1;
-}
-echo form_dropdown('', $options,$opc->nombreCategoria);
-?>
+
+
+<?= form_open("/CMC/deleteCategoria") ?>
+<?php $i=1;?>
+<select name="borrar">
+<option></option>
+<?php foreach($cat->result() as $opc){?>
+<option value= "<?php echo $i; ?>" > <?php echo $opc->nombreCategoria; ?> </option> 
+<?php $i+=1;
+}?>
+</select>
 <?= form_submit('','Eliminar') ?>
 <?= form_close() ?>
 

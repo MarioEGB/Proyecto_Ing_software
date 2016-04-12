@@ -55,3 +55,6 @@ $route['CMC/Computadoras'] = 'CMC/Productos';
 $route['CMC/Tablets'] = 'CMC/Productos';
 $route['CMC/Laptops'] = 'CMC/Productos';
 $route['CMC/:num'] ="CMC/verProducto";
+$route['CMC/Computadoras/:num'] = 'CMC/Productos';
+$route['CMC/Tablets/:num'] = 'CMC/Productos';
+$route['CMC/Laptops/:num'] = 'CMC/Productos';

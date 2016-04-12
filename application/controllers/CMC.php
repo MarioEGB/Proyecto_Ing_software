@@ -25,7 +25,7 @@ function Productos(){
 	$this->load->model('CompuMaxDBM');
 	$this->load->library('pagination');
 
-	$config['base_url'] = base_url()."Productos/";
+	$config['base_url'] = base_url()."CMC/Productos";
 	$config['total_row']=$this->CompuMaxDBM->num_filas($dep);
 	$config['per_page']= 4;
 	$config['num_links']=5;
@@ -34,16 +34,19 @@ function Productos(){
 	$config['next_link']='Siguiente';
 	$config['prev_link']='Anterior';
 
-	$config['cur_tag_open']= '<b class="paginacion">';
+	/*$config['cur_tag_open']= '<b class="paginacion">';
 	$config['cur_tag_close']= '</b>';
 
 	$config['full_tag_open']= '<div class="col-md-6 productos">';
-	$config['full_tag_close']= '</div>';
+	$config['full_tag_close']= '</div>';*/
 
 	$this->pagination->initialize($config);
+	
 	$prod=array("dep"=>$dep,"per_page"=>$config['per_page']);
 	$dato['titulo']= $dep;
-	$tablas['tablas']=array("datos"=>$this->CompuMaxDBM->datosMenu(),"prod"=>$this->CompuMaxDBM->productos($prod),"paginacion"=>$this->pagination->create_links());
+	$tablas['tablas']=array("datos"=>$this->CompuMaxDBM->datosMenu(),"prod"=>$this->CompuMaxDBM->productos($prod),"paginacion"=>""/*$this->pagination->create_links()*/);
+	
+
 	$this->load->view('headers',$dato);
 	$this->load->view('Productos',$tablas);
 
@@ -80,20 +83,31 @@ function addCategoria(){
 }
 
 function updateCategoria(){
-	$this->load->helper('cookie');
 	$this->load->model('CompuMaxDBM');
+
+	for ($i=1; $i < $this->CompuMaxDBM->num_filas_cat()+1; $i++) { 
+		if(isset($_POST[$i])){
+		$id=$i;
+		break;
+		}
+	}
 	$data =$this->input->post('nombre');
-	$i=get_cookie($cookie)->value;
-	$this->CompuMaxDBM->updateCategoria($data,$i);
+		$this->CompuMaxDBM->updateCategoria($data,$id);
 }
 
 function deleteCategoria(){
 	$this->load->model('CompuMaxDBM');
-	$data =$this->input->post('categoria');
-	$this->CompuMaxDBM->deleteCategoria($data);
+
+		if(isset($_POST['borrar'])){
+		$id=$_POST['borrar'];
+		}
+	
+	
+	$this->CompuMaxDBM->deleteCategoria($id);
 }
 
 function datosEnvio(){
+	$this->load->helper('form');
 	$dato['titulo']= 'Datos Envio';
 	$this->load->view('headers',$dato);
 	$this->load->view('datosEnvio');
@@ -104,7 +118,7 @@ function TerminarCompra(){
 }
 
 function Cobro(){
-
+	echo $_POST['borrar'];
 }
 
 function verProducto(){
