@@ -92,6 +92,21 @@ function deleteCarrito(){
 	$this->CompuMaxDBM->deleteCarrito();
 }
 
+function compra(){
+	$this->load->model('CompuMaxDBM');
+	$this->CompuMaxDBM->compra();
+}
+
+
+function generaReportes(){
+	$dato['titulo']= 'Reporte de Ventas';
+	$this->load->model('CompuMaxDBM');
+	$query1['datos1']=$this->CompuMaxDBM->generarReportes();
+	$this->load->view('headers',$dato);
+	$this->load->view('Reportes',$query1);
+
+}
+
 function addCategoria(){
 	$this->load->model('CompuMaxDBM');
 	$data = array('idCategoria'=>$this->CompuMaxDBM->num_filas_cat()+1 ,'nombreCategoria' => $this->input->post('nombre'));

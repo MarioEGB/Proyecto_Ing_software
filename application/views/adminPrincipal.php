@@ -5,11 +5,11 @@
 <br><br><br><br><br>
 <div class ="adminPrincipal">
 <ul id="menu" >
-<a href=<?=base_url()."/CMC/adminCategorias"?> class ="adminPrincipal">Administrador de Categorias  </a>
+<a href=<?=base_url()."CMC/adminCategorias"?> class ="adminPrincipal">Administrador de Categorias  </a>
 <br><br><br><br>
-<a href=<?=base_url()."/CMC/adminArticulos"?> class ="adminPrincipal">Administrador de Articulos</a>
+<a href=<?=base_url()."CMC/adminArticulos"?> class ="adminPrincipal">Administrador de Articulos</a>
 <br><br><br><br>
-<a href=<?=base_url()."/CMD/reporteVentas"?> class ="adminPrincipal">Reporte de ventas</a>
+<a href=<?=base_url()."CMC/generaReportes"?> class ="adminPrincipal">Reporte de ventas</a>
 
 <br><br><br><br>
 <a href=<?=base_url()."/CMC"?> class ="adminPrincipal">Salir</a>

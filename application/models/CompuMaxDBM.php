@@ -124,7 +124,29 @@ function deleteCarrito(){
 	}
 	redirect(base_url()."CMC/Carrito"); 
 }
-	
+
+function deleteCarrito2(){
+	$query = $this->db->get('aux_carrito');
+	foreach ($query->result() as $row) {
+		$this->db->delete('aux_carrito',array('id'=>$row->id));
+	}
+}
+
+function generarReportes(){
+	$query= $this->db->get('carrito');
+	return $query;
+	}
+
+function compra(){
+	$query= $this->db->get('aux_carrito');
+	foreach ($query->result() as $row ) {
+		$array=array('cantidadArticulos'=> $row->num_articulos,'fecha'=>date("Y-m_d H:i:s"),'nombre_articulo'=>$row->nombre_articulo,'precio'=>$row->precio);
+		$this->db->insert('carrito',$array);
+	}
+	$this->CompuMaxDBM->deleteCarrito2();
+	 redirect(base_url()."CMC");
+}	
+
 }
 
 ?>	

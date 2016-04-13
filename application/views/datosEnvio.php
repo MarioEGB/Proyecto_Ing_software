@@ -5,7 +5,7 @@
 <h1 align ="center">DATOS DE ENVIO</h1>
 <hr>
 
-<?= form_open("CMC/datosEnvio");?>
+<?= form_open(base_url()."CMC/compra");?>
 <?php $direccion=array('name'=>'direccion', 'placeholder' => 'Escribe tu direccion', 'size' => '40');
 $colonia=array('name'=>'colonia', 'placeholder' => 'Escribe tu colonia','size' => '40');
 $ciudad=array('name'=>'ciudad', 'placeholder' => 'Escribe tu ciudad','size' => '40');
