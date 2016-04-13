@@ -1,9 +1,10 @@
 <body id="p"> 
 <tr>
-    <div align = "center">
+    <div align = "center" class="color-blanco">
         <h1>CompuMax</h1>
         <h2>Generar Reporte de Ventas</h2>
-        <br><br><br><br>
+        <hr>
+        <br><br><br>
         <table border="1">
         <thead>
             <tr>
@@ -27,5 +28,11 @@
     </table>
     </div>   
 </tr>  
+<br> <br> <br> 
+<div align="center">
+    <?= form_open(base_url()."CMC/adminPrincipal")?>
+    <?= form_submit('','Regresar'); ?>
+    <?= form_close() ?>
+</div>
 </body>
 </html>

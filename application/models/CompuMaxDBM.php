@@ -11,6 +11,11 @@ class CompuMaxDBM extends CI_Model{
 function addCategoria($data){
 	 $this->db->insert('categoria',$data);
 	 redirect(base_url()."CMC/adminCategorias");
+}
+
+function addProducto($data){
+	$this->db->insert('producto',$data);
+	 redirect(base_url()."CMC/adminArticulos");
 }	
 
 function validarDatos($data){
@@ -39,6 +44,31 @@ function getCategorias(){
 	return $query;
 }
 
+function getArticulos(){
+	$query = $this->db->get('producto');
+	return $query;
+}
+
+function num_filas_prod(){
+	$query = $this->db->get('producto');
+	return $query->num_rows();
+}
+
+function updateProducto($datos,$id){
+	$query= $this->db->get('producto');
+	 $this->db->where('idProducto', $id);
+	 foreach ($query->result() as $row ) {
+
+	 	if($row->nombreProducto!=$datos['nombre'] || $row->descripcion!=$datos['descripcion'] || $row->precio!=$datos['precio'] || $row->imagen!=$datos['imagen'] || $row->Categoria_idCategoria!=$datos['categoria']){
+	 		$mod=array('nombreProducto'=> $datos['nombre'],'descripcion'=>$datos['descripcion'],'precio'=>$datos['precio'],'imagen'=>$datos['imagen'],'Categoria_idCategoria'=>$datos['categoria']);
+	 		$this->db->update('producto', $mod);
+	 		break;
+	 }
+
+}	 
+	 redirect(base_url()."CMC/adminArticulos");
+}
+
 function updateCategoria($data,$id){
 	 $query= $this->db->get('categoria');
 	 $this->db->where('idCategoria', $id);
@@ -52,6 +82,11 @@ function updateCategoria($data,$id){
 function deleteCategoria($id){
 	$this->db->delete('categoria',array('idCategoria'=>$id));
 	redirect(base_url()."CMC/adminCategorias"); 
+}
+
+function deleteProducto($id){
+	$this->db->delete('producto',array('idProducto'=>$id));
+	redirect(base_url()."CMC/adminArticulos"); 	
 }
 
 function datosProd($id){

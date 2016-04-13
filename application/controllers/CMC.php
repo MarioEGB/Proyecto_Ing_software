@@ -101,10 +101,45 @@ function compra(){
 function generaReportes(){
 	$dato['titulo']= 'Reporte de Ventas';
 	$this->load->model('CompuMaxDBM');
+	$this->load->helper('form');
 	$query1['datos1']=$this->CompuMaxDBM->generarReportes();
 	$this->load->view('headers',$dato);
 	$this->load->view('Reportes',$query1);
 
+}
+
+function adminArticulos(){
+	$dato['titulo']= 'Administracion de categorias';
+	$this->load->helper('form');
+	$this->load->model('CompuMaxDBM');
+	$this->load->view('headers',$dato);
+	$art=array('art'=> $this->CompuMaxDBM->getArticulos());
+	$this->load->view('adminArticulos',$art);
+
+}
+
+function updateProducto(){
+	$this->load->model('CompuMaxDBM');
+	for ($i=1; $i < $this->CompuMaxDBM->num_filas_prod()+1; $i++) { 
+		if(isset($_POST[$i])){
+		$id=$i;
+		break;
+		}
+	}
+
+	$data=array('nombre'=>$this->input->post('nombre'),
+						'descripcion'=>$this->input->post('descripcion'),
+						'precio'=>$this->input->post('precio'),
+						'imagen'=>$this->input->post('imagen'),
+						'categoria'=>$this->input->post('categoria')
+						);
+	$this->CompuMaxDBM->updateProducto($data,$id);
+}
+
+function addProducto(){
+	$this->load->model('CompuMaxDBM');
+	$data = array('idProducto'=>$this->CompuMaxDBM->num_filas_prod()+1 ,'nombreProducto' => $this->input->post('nombre'),'descripcion' => $this->input->post('descripcion'),'precio' => $this->input->post('precio'),'imagen' => $this->input->post('imagen'),'Categoria_idCategoria'=>$this->input->post('categoria'));
+	$this->CompuMaxDBM->addProducto($data);
 }
 
 function addCategoria(){
@@ -124,6 +159,16 @@ function updateCategoria(){
 	}
 	$data =$this->input->post('nombre');
 		$this->CompuMaxDBM->updateCategoria($data,$id);
+}
+
+function deleteProducto(){
+	$this->load->model('CompuMaxDBM');
+		if(isset($_POST['borrar'])){
+		$id=$_POST['borrar'];
+		}
+	
+	
+	$this->CompuMaxDBM->deleteProducto($id);
 }
 
 function deleteCategoria(){

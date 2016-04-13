@@ -1,7 +1,8 @@
 
 <body id="p">
-	<div align = "center">
+	<div align = "center" class="color-blanco">
 <h1>PAGINA DE ADMINISTRADOR </h1>
+<hr>
 <br><br><br><br><br>
 <div class ="adminPrincipal">
 <ul id="menu" >
