@@ -2,10 +2,17 @@
 	float: none;
 }
 
-
+.espacio-der-carro{
+	margin-left: 48.3em;
+}
 .centrar{
 	text-align: center;
-	
+
+}
+
+.matar-carro{
+text-align: center;
+color: red;	
 }
 .espacio-izq{
 	margin-left: 880px;

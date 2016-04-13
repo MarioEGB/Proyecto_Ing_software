@@ -17,7 +17,19 @@ function index(){
 }
 
 function Carrito(){
-	
+	$dato['titulo']= 'Carrito';
+	$this->load->library('table');
+	$this->load->model('CompuMaxDBM');
+	$this->load->helper('form');
+	$data['datos']=$this->CompuMaxDBM->retCarrito();
+	$this->load->view('headers',$dato);
+	$this->load->view('Carrito',$data);
+}
+
+function agregarCarrito(){
+	$this->load->model('CompuMaxDBM');
+	$id=$this->input->post('id');
+	$this->CompuMaxDBM->carroAux($id);
 }
 
 function Productos(){
@@ -75,6 +87,11 @@ function adminCategorias(){
 	$this->load->view('adminCategorias',$cat);
 }
 
+function deleteCarrito(){
+	$this->load->model('CompuMaxDBM');
+	$this->CompuMaxDBM->deleteCarrito();
+}
+
 function addCategoria(){
 	$this->load->model('CompuMaxDBM');
 	$data = array('idCategoria'=>$this->CompuMaxDBM->num_filas_cat()+1 ,'nombreCategoria' => $this->input->post('nombre'));
@@ -119,13 +136,8 @@ function datosCliente(){
 	$this->load->view('datosCliente');
 } 
 
-function TerminarCompra(){
 
-}
 
-function Cobro(){
-	echo $_POST['borrar'];
-}
 
 function verProducto(){
 	$prod=$this->uri->segment(2);

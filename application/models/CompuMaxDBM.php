@@ -103,6 +103,27 @@ function num_filas_cat(){
 	$query = $this->db->get('categoria');
 	return$query->num_rows();
 }
+
+function carroAux($id){
+	$query= $this->db->get_where('producto', array('idProducto' => $id));
+	$array=array('nombre_articulo'=>$query->result()[0]->nombreProducto,'num_articulos'=>1,'precio'=>$query->result()[0]->precio);
+
+	$this->db->insert('aux_carrito',$array);
+	 redirect(base_url()."CMC");
+}
+
+function retCarrito(){
+	$query = $this->db->get('aux_carrito');
+		return $query;
+}
+
+function deleteCarrito(){
+	$query = $this->db->get('aux_carrito');
+	foreach ($query->result() as $row) {
+		$this->db->delete('aux_carrito',array('id'=>$row->id));
+	}
+	redirect(base_url()."CMC/Carrito"); 
+}
 	
 }
 

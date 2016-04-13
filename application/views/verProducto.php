@@ -15,12 +15,15 @@
 
 	<div class="productos ">
 		<?= form_open("/CMC/agregarCarrito") ?>
+		
+		<?=form_hidden('id',$dep=$this->uri->segment(2));?>
 <?= form_submit('','Agregar al carrito') ?>
 <?= form_close() ?>	
 	</div>
 
 	<div class="espacio-izq ">
 		<?= form_open("/CMC") ?>
+
 <?= form_submit('','Regresar') ?>
 <?= form_close() ?>
 	</div>
